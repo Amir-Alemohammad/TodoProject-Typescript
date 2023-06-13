@@ -1,10 +1,12 @@
 import { Router } from "express";
 
+import AuthController from "../controllers/user.controller";
+
 const router: Router = Router();
 
-router.get("/register",(req,res,next)=>{
-    res.send("salam")
-});
+const auth = new AuthController;
+
+router.post("/register",auth.register);
 
 const userRouter:Router = router;
 

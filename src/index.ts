@@ -1,3 +1,3 @@
 import Application from "./app";
 
-new Application(Number(process.env.PORT),"mongoose://127.0.0.1:27017");
+new Application(Number(process.env.PORT),String(process.env.DB_URL));
