@@ -2,7 +2,7 @@ import mongoose, {Schema} from "mongoose";
 import bcrypt from "bcryptjs";
 
 
-import User from "../utils/interfaces/user.interface";
+import {User} from "../utils/interfaces/user.interface";
 
 
 

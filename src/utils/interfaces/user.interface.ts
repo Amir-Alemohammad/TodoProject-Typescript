@@ -1,6 +1,11 @@
-interface User{
+import { Request } from "express";
+import { JwtPayload } from "jsonwebtoken";
+
+export interface User{
     fullname: string;
     email: string;
     password: string;
 }
-export default User;
+export interface CustomRequest extends Request {
+    token: string | JwtPayload;
+}
