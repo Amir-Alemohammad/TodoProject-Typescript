@@ -9,9 +9,13 @@ const todoSchema = new Schema<Todo>({
         trim : true,
         minlength : 3,
         max : 255,
-    }
+    },
+    user:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user",
+    },
 },{timestamps:true});
 
-const todoModel = mongoose.model("todoModel",todoSchema);
+const todoModel = mongoose.model<Todo>("todoModel",todoSchema);
 
 export default todoModel;

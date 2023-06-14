@@ -22,8 +22,8 @@ class AuthController{
             }
             await userModel.create({fullname,email,password});
             
-            res.status(200).json({
-                statusCode: 200,
+            res.status(201).json({
+                statusCode: 201,
                 message: "ثبت نام با موفقیت انجام شد"
             });
 
@@ -44,7 +44,7 @@ class AuthController{
                 const isEqaul = await bcrypt.compare(password,user.password);
                 if(isEqaul){
                     const token = jwt.sign({
-                        user: user._id.toString(),
+                        userId: user._id.toString(),
                     },String(process.env.SECRET_KEY));
                     res.status(200).json({
                         token,

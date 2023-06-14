@@ -1,4 +1,7 @@
+import { Types } from "mongoose";
+
 interface Todo{
-    text:string
+    text:string;
+    user: Types.ObjectId;
 }
 export default Todo;

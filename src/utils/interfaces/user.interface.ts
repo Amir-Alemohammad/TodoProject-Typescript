@@ -9,3 +9,7 @@ export interface User{
 export interface CustomRequest extends Request {
     token: string | JwtPayload;
 }
+export interface customDecoded{
+    userId: string;
+    iat: number
+}
