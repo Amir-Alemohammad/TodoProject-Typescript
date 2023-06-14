@@ -32,6 +32,25 @@ class todoController{
         } catch (err) {
             next(err);
         }
+    }
+    async deleteTodo(req:Request,res:Response,next:NextFunction){
+        try {
+            const {id} = req.params;
+            const todo = await todoModel.findOne({_id : id});
+            if(!todo){
+                res.status(404).json({
+                    message:"پستی با این مشخصات پیدا نشد",
+                    statusCode: 404,
+                });
+            }
+            await todoModel.findByIdAndRemove(id);
+            res.status(202).json({
+                message:"پست با موفقیت حذف شد",
+                statusCode:202,
+            })
+        } catch (err) {
+            next(err);
+        }
         
     }
 }

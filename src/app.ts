@@ -1,4 +1,4 @@
-import express,{Application , ErrorRequestHandler , Request , Response } from "express"
+import express,{Application , ErrorRequestHandler , NextFunction, Request , Response } from "express"
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 
@@ -45,10 +45,7 @@ class App{
         const errorHandler: ErrorRequestHandler = (error,req:Request,res:Response) => {
             const status = error?.statusCode || 500 
             const message = error?.message || "خطای سرور"
-            res.status(status).json({
-                status,
-                message,
-            }); 
+            throw new Error()
         };
         this._app.use(errorHandler);
     }
