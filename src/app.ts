@@ -44,8 +44,8 @@ class App{
     private HandlerError():void{
         const errorHandler: ErrorRequestHandler = (error,req:Request,res:Response) => {
             const status = error?.statusCode || 500 
-            const message = error?.message || "خطای سرور"
-            throw new Error()
+            const message = error?.message || "خطایی از سمت سرور رخ داده است"
+            throw new Error(message);
         };
         this._app.use(errorHandler);
     }
